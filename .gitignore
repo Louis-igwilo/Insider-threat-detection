@@ -1,12 +1,21 @@
-node_modules/
+# Python
+__pycache__/
+*.pyc
 .venv/
 env/
-__pycache__/
+
+# Node
+node_modules/
+
+# Large files
 *.zip
-*.mp4
 *.csv
+*.mp4
 *.pt
 *.h5
-*.log
 *.sqlite3
+*.log
+
+# OS / IDE files
 .DS_Store
+.vscode/
