@@ -1,0 +1,12 @@
+node_modules/
+.venv/
+env/
+__pycache__/
+*.zip
+*.mp4
+*.csv
+*.pt
+*.h5
+*.log
+*.sqlite3
+.DS_Store
