@@ -134,5 +134,6 @@ def user_details(uid):
     return jsonify({"error": "User not found"}), 404
 
 if __name__ == '__main__':
-    # Set debug=True so the server auto-reloads when you change code
-    app.run(debug=True, port=5000)
+    import os
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
