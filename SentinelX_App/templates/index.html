@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SentinelX Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>🛡️ SentinelX</h2>
+        <p>Analyst: <strong>Admin</strong></p>
+        <hr>
+        <div class="filters">
+            <label>Risk Filter</label>
+            <select id="risk-filter" onchange="refreshDashboard()">
+                <option value="All">All Risks</option>
+                <option value="HIGH">High Only</option>
+                <option value="MEDIUM">Medium Only</option>
+            </select>
+            <br><br>
+            <label>Department Filter</label>
+            <select id="dept-filter" onchange="refreshDashboard()">
+                <option value="All">All Departments</option>
+                <option value="IT">IT</option>
+                <option value="Finance">Finance</option>
+                <option value="Legal">Legal</option>
+                <option value="Ops">Ops</option>
+            </select>
+        </div>
+        <br>
+        <a href="/logout"><button style="background:#444; width:100%">Logout</button></a>
+    </div>
+
+    <div class="main-content">
+        <div class="kpi-container">
+            <div class="card">
+                <h4>Active Threats</h4>
+                <h2 id="total-threats">0</h2>
+            </div>
+            <div class="card">
+                <h4>Critical (High)</h4>
+                <h2 id="critical-count" style="color: #ff4b4b;">0</h2>
+            </div>
+            <div class="card">
+                <h4>System Status</h4>
+                <h2 style="color: #3fb950;">SECURE</h2>
+            </div>
+        </div>
+
+        <div style="display: flex; gap: 20px;">
+            <div style="flex: 2;">
+                <h3>🚨 Security Alert Queue</h3>
+                <div id="alert-list">
+                    </div>
+
+                <h3>🛰️ Live Event Logs</h3>
+                <div class="card" style="padding:0;">
+                    <table id="log-table" style="width:100%; text-align:left; border-collapse: collapse;">
+                        <thead style="background: #21262d;">
+                            <tr>
+                                <th style="padding:10px;">Time</th>
+                                <th>User</th>
+                                <th>Risk</th>
+                            </tr>
+                        </thead>
+                        <tbody id="log-body"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div style="flex: 1;">
+                <h3>🔍 Investigation</h3>
+                <div id="investigation-panel" class="card">
+                    <p style="color: #8b949e;">Select an alert to begin forensics.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>

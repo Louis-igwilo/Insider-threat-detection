@@ -1,4 +1,4 @@
-Ximport pandas as pd
+import pandas as pd
 import pyodbc
 from sklearn.ensemble import IsolationForest
 
